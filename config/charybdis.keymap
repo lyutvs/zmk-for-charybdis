@@ -11,11 +11,12 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 12
 
 // Layer indices
-#define BASE  0
-#define SYM   1
-#define NAV   2
-#define FUN   3
-#define MOUSE 5
+#define BASE   0
+#define SYM    1
+#define NAV    2
+#define FUN    3
+#define SCROLL 4
+#define MOUSE  5
 
 // SYM/NAV layer hold is now on left pinky (ESC/TAB positions) so the
 // right thumb can roll the trackball without interfering with layer access.
@@ -26,12 +27,12 @@
     quick-tap-ms = <150>;
 };
 
-// Trackball: normal mouse movement on BASE, scroll on NAV layer
+// Trackball: normal mouse movement on BASE, scroll on SCROLL layer
 &mmv_input_listener {
     input-processors = <&zip_xy_scaler 2 1>;
 
-    nav_scroll {
-        layers = <NAV>;
+    scroll {
+        layers = <SCROLL>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
@@ -106,16 +107,17 @@
         // BASE — QWERTY + home row mods
         //   Left pinky top: lt(SYM, ESC) — tap=ESC, hold=SYM
         //   Left pinky mid: lt(NAV, TAB) — tap=TAB, hold=NAV
-        //   Left thumbs : Ctrl / Cmd / Space
-        //   Right thumbs: lt(FUN, RET) / BSPC
-        //   (Layer hold moved to left pinky so right thumb is free for trackball)
+        //   Left thumbs (outer→inner): mo SCROLL / Cmd / Space
+        //   Right thumbs: lt(FUN, RET) / CAPS (한/영)
+        //   Right pinky top: BSPC (swapped with CAPS)
+        //   (Ctrl available via home row D)
         // ────────────────────────────────────────────────────────────────
         layer_0 {
             bindings = <
-&lt SYM ESC      &kp Q           &kp W           &kp E            &kp R            &kp T       &kp Y       &kp U            &kp I            &kp O           &kp P              &kp CAPS
-&lt NAV TAB      &hm LGUI A      &hm LALT S      &hm LCTRL D      &hm LSHFT F      &kp G       &kp H       &hm RSHFT J      &hm RCTRL K      &hm LALT L      &hm RGUI SEMI      &kp SQT
-&kp LSHFT        &kp Z           &kp X           &kp C            &kp V            &kp B       &kp N       &kp M            &kp COMMA        &kp DOT         &kp SLASH          &kp RET
-                                                 &kp LCTRL        &kp LGUI         &kp SPACE   &lt FUN RET &kp BSPC
+&lt SYM ESC      &kp Q           &kp W           &kp E            &kp R            &kp T          &kp Y       &kp U            &kp I            &kp O           &kp P              &kp BSPC
+&lt NAV TAB      &hm LGUI A      &hm LALT S      &hm LCTRL D      &hm LSHFT F      &kp G          &kp H       &hm RSHFT J      &hm RCTRL K      &hm LALT L      &hm RGUI SEMI      &kp SQT
+&kp LSHFT        &kp Z           &kp X           &kp C            &kp V            &kp B          &kp N       &kp M            &kp COMMA        &kp DOT         &kp SLASH          &kp RET
+                                                 &mo SCROLL       &kp LGUI         &kp SPACE      &lt FUN RET &kp CAPS
             >;
 
             sensor-bindings =
