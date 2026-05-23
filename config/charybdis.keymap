@@ -23,7 +23,15 @@
     quick-tap-ms = <150>;
 };
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+// Trackball: normal mouse movement on BASE, scroll on NAV layer
+&mmv_input_listener {
+    input-processors = <&zip_xy_scaler 2 1>;
+
+    nav_scroll {
+        layers = <NAV>;
+        input-processors = <&zip_xy_to_scroll_mapper>;
+    };
+};
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
