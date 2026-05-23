@@ -12,8 +12,8 @@
 
 // Layer indices
 #define BASE 0
-#define NAV  1
-#define SYM  2
+#define SYM  1
+#define NAV  2
 #define FUN  3
 
 &lt {
@@ -113,28 +113,28 @@
         };
 
         // ────────────────────────────────────────────────────────────────
-        // NAV — arrows, Mac shortcuts, mouse clicks
+        // SYM — symbols + numbers
         //   Activate: hold right-outer thumb (ENT)
         // ────────────────────────────────────────────────────────────────
         layer_1 {
-            bindings = <
-&trans   &trans     &trans     &trans     &trans     &trans       &kp LG(LS(Z))  &kp LG(V)    &kp LG(C)   &kp LG(X)   &kp LG(Z)       &trans
-&trans   &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans       &kp HOME       &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT       &kp END
-&trans   &trans     &mkp MB3   &mkp MB2   &mkp MB1   &trans       &kp LG(LEFT)   &kp PG_DN    &kp PG_UP   &kp DEL     &kp LG(RIGHT)   &trans
-                               &trans     &trans     &trans       &trans         &trans
-            >;
-        };
-
-        // ────────────────────────────────────────────────────────────────
-        // SYM — symbols + numbers
-        //   Activate: hold right-inner thumb (BSPC)
-        // ────────────────────────────────────────────────────────────────
-        layer_2 {
             bindings = <
 &kp N1    &kp N2     &kp N3     &kp N4     &kp N5     &kp N6       &kp N7      &kp N8      &kp N9      &kp N0       &kp MINUS    &trans
 &kp GRAVE &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans       &kp EQUAL   &kp LBKT    &kp RBKT    &kp BSLH     &kp SEMI     &kp COLON
 &kp TILDE &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET   &kp AMPS    &kp ASTRK   &kp LPAR     &kp RPAR     &kp PIPE
                                 &trans     &trans     &trans       &trans      &trans
+            >;
+        };
+
+        // ────────────────────────────────────────────────────────────────
+        // NAV — arrows, Mac shortcuts, mouse clicks
+        //   Activate: hold right-inner thumb (BSPC)
+        // ────────────────────────────────────────────────────────────────
+        layer_2 {
+            bindings = <
+&trans   &trans     &trans     &trans     &trans     &trans       &kp LG(LS(Z))  &kp LG(V)    &kp LG(C)   &kp LG(X)   &kp LG(Z)       &trans
+&trans   &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans       &kp HOME       &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT       &kp END
+&trans   &trans     &mkp MB3   &mkp MB2   &mkp MB1   &trans       &kp LG(LEFT)   &kp PG_DN    &kp PG_UP   &kp DEL     &kp LG(RIGHT)   &trans
+                               &trans     &trans     &trans       &trans         &trans
             >;
         };
 
