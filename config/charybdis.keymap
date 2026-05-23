@@ -11,10 +11,11 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 12
 
 // Layer indices
-#define BASE 0
-#define SYM  1
-#define NAV  2
-#define FUN  3
+#define BASE  0
+#define SYM   1
+#define NAV   2
+#define FUN   3
+#define MOUSE 5
 
 &lt {
     tapping-term-ms = <200>;
@@ -128,15 +129,16 @@
         // ────────────────────────────────────────────────────────────────
         // NAV — arrows, Mac shortcuts on left, mouse clicks on left thumb
         //   Activate: hold right-inner thumb (BSPC)
-        //   Left thumb (outer→inner): MB3 / MB2 / MB1
+        //   Left thumb (outer→inner): MB3 / MB2 / MB1  (simple click)
         //   Left bottom row: Mac shortcuts at Mac-standard ZXCV positions
+        //   G (left index home row right): &tog MOUSE  (for drag-and-drop)
         // ────────────────────────────────────────────────────────────────
         layer_2 {
             bindings = <
-&trans   &trans     &trans     &trans     &trans     &trans       &trans         &trans       &trans      &trans      &trans          &trans
-&trans   &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &trans       &kp HOME       &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT       &kp END
-&trans   &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LG(LS(Z)) &kp LG(LEFT)  &kp PG_DN    &kp PG_UP   &kp DEL     &kp LG(RIGHT)   &trans
-                               &mkp MB3   &mkp MB2   &mkp MB1     &trans         &trans
+&trans   &trans     &trans     &trans     &trans     &trans         &trans         &trans       &trans      &trans      &trans          &trans
+&trans   &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &tog MOUSE     &kp HOME       &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT       &kp END
+&trans   &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LG(LS(Z))  &kp LG(LEFT)   &kp PG_DN    &kp PG_UP   &kp DEL     &kp LG(RIGHT)   &trans
+                               &mkp MB3   &mkp MB2   &mkp MB1       &trans         &trans
             >;
         };
 
@@ -164,12 +166,17 @@
             >;
         };
 
+        // ────────────────────────────────────────────────────────────────
+        // MOUSE — sticky toggle layer for drag-and-drop
+        //   Enter/exit: tap G in NAV (or any &tog MOUSE binding)
+        //   Hold MB on left thumb + move trackball with right hand
+        // ────────────────────────────────────────────────────────────────
         layer_5 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &tog MOUSE     &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
+                        &mkp MB3  &mkp MB2  &mkp MB1   &trans  &trans
             >;
         };
 
