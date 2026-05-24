@@ -219,7 +219,7 @@
         // ────────────────────────────────────────────────────────────────
         // NAV — arrows, Mac shortcuts on left, mouse clicks on left thumb
         //   Activate: hold right-inner thumb (BSPC)
-        //   Left thumb (outer→inner): MB3 / MB2 / MB1  (simple click)
+        //   Left thumb (outer→inner): MB1 / MB3 / MB2  (좌 / 가운데 / 우)
         //   Left bottom row: Mac shortcuts at Mac-standard ZXCV positions
         //   G (left index home row right): &tog MOUSE  (for drag-and-drop)
         // ────────────────────────────────────────────────────────────────
@@ -228,7 +228,7 @@
 &trans   &trans     &trans     &trans     &trans     &trans         &trans         &trans       &trans      &trans      &trans          &trans
 &trans   &kp LGUI   &kp LALT   &kp LCTRL  &kp LSHFT  &tog MOUSE     &kp HOME       &kp LEFT     &kp DOWN    &kp UP      &kp RIGHT       &kp END
 &trans   &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LG(LS(Z))  &kp LG(LEFT)   &kp PG_DN    &kp PG_UP   &kp DEL     &kp LG(RIGHT)   &trans
-                               &mkp MB3   &mkp MB2   &mkp MB1       &trans         &trans
+                               &mkp MB1   &mkp MB3   &mkp MB2       &trans         &trans
             >;
         };
 
@@ -266,7 +266,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &tog MOUSE     &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans  &trans
-                        &mkp MB3  &mkp MB2  &mkp MB1   &trans  &trans
+                        &mkp MB1  &mkp MB3  &mkp MB2   &trans  &trans
             >;
         };
 
