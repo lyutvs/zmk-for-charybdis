@@ -77,10 +77,12 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Layer-tap with RGB indicator on hold. Single param = tap key.
+        // Layer-tap with RGB indicator on hold.
+        // ZMK hold-tap is fixed at #binding-cells = <2> so usage is
+        // `&sym_lt 0 ESCAPE` (first cell is a dummy for the macro).
         sym_lt: sym_layer_tap_rgb {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -88,7 +90,7 @@
         };
         nav_lt: nav_layer_tap_rgb {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -96,7 +98,7 @@
         };
         fun_lt: fun_layer_tap_rgb {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
@@ -114,10 +116,13 @@
         //   NAV  = green  HSB(120,100,50)
         //   FUN  = purple HSB(280,100,50)
         //   BASE = white  HSB(  0,  0,30) (dim — released state)
+        // 1-param macros so they can be the hold-binding of a hold-tap
+        // (hold-tap requires both bindings to have 1 cell). The param is
+        // ignored — layer index is hard-coded in the macro body.
         sym_indicator: sym_indicator {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-one-param";
             label = "sym_indicator";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
             bindings
@@ -128,9 +133,9 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,30)>;
         };
         nav_indicator: nav_indicator {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-one-param";
             label = "nav_indicator";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
             bindings
@@ -141,9 +146,9 @@
                 , <&macro_tap &rgb_ug RGB_COLOR_HSB(0,0,30)>;
         };
         fun_indicator: fun_indicator {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-one-param";
             label = "fun_indicator";
-            #binding-cells = <0>;
+            #binding-cells = <1>;
             wait-ms = <0>;
             tap-ms = <0>;
             bindings
@@ -184,10 +189,10 @@
         // ────────────────────────────────────────────────────────────────
         layer_0 {
             bindings = <
-&sym_lt ESC      &kp Q           &kp W           &kp E            &kp R            &kp T          &kp Y       &kp U            &kp I            &kp O           &kp P              &kp BSPC
-&nav_lt TAB      &hm LGUI A      &hm LALT S      &hm LCTRL D      &hm LSHFT F      &kp G          &kp H       &hm RSHFT J      &hm RCTRL K      &hm LALT L      &hm RGUI SEMI      &kp SQT
-&kp LSHFT        &kp Z           &kp X           &kp C            &kp V            &kp B          &kp N       &kp M            &kp COMMA        &kp DOT         &kp SLASH          &kp RET
-                                                 &kp LCTRL        &kp LGUI         &kp SPACE      &fun_lt RET &kp CAPS
+&sym_lt 0 ESC    &kp Q           &kp W           &kp E            &kp R            &kp T          &kp Y         &kp U            &kp I            &kp O           &kp P              &kp BSPC
+&nav_lt 0 TAB    &hm LGUI A      &hm LALT S      &hm LCTRL D      &hm LSHFT F      &kp G          &kp H         &hm RSHFT J      &hm RCTRL K      &hm LALT L      &hm RGUI SEMI      &kp SQT
+&kp LSHFT        &kp Z           &kp X           &kp C            &kp V            &kp B          &kp N         &kp M            &kp COMMA        &kp DOT         &kp SLASH          &kp RET
+                                                 &kp LCTRL        &kp LGUI         &kp SPACE      &fun_lt 0 RET &kp CAPS
             >;
 
             sensor-bindings =
